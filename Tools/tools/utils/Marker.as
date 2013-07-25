@@ -1,5 +1,4 @@
-package tools.utils 
-{
+package tools.utils {
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.textures.Texture;
@@ -8,13 +7,11 @@ package tools.utils
 	 * ...
 	 * @author Egidijus
 	 */
-	public class Marker extends Sprite 
-	{
-		[Embed(source = "newMarker.png")]
+	public class Marker extends Sprite {
+		[Embed(source="newMarker.png")]
 		private static var imageClass:Class;
 		
-		public function Marker(_x:Number = 0, _y:Number = 0 ) 
-		{
+		public function Marker(_x:Number = 0, _y:Number = 0) {
 			var image:Image = new Image(Texture.fromBitmap(new imageClass(), false, false));
 			addChild(image);
 			image.pivotX = image.width / 2;
@@ -23,7 +20,7 @@ package tools.utils
 			x = _x;
 			y = _y;
 		}
-		
+	
 	}
 
 }

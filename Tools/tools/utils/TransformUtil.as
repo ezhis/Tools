@@ -97,6 +97,7 @@ package tools.utils {
 			dragObjects.splice(id, 1);
 		}
 		
+		
 		static public function initTouchTrace(pDragObject:DisplayObject):void {
 			init();
 			pDragObject.addEventListener(TouchEvent.TOUCH, onTraceTouch);

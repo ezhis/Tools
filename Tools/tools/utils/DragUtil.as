@@ -70,22 +70,6 @@ package tools.utils {
 				pivotPoint.pivotX = pivotPoint.pivotY = pivotPoint.width / 2;
 				pivotPoint.scaleX = pivotPoint.scaleY = 0.4;
 				
-				
-				
-				
-				/*borders = new Image(Texture.fromBitmap(new PivotPointImage(), false, false));
-				borders.pivotX = pivotPoint.pivotY = pivotPoint.width / 2;
-				borders.scaleX = pivotPoint.scaleY = 0.4;*/
-/*				var borderTexture:Texture = Texture.fromBitmap(new BordersImage());
-			borders = new Scale9Image(borderTexture, new Rectangle(3, 3, 26, 26));
-				borders.alpha = 0.2;
-				borders.touchable = false;*/
-				//addChild(image);
-				/*Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_MOVE, function(e:MouseEvent):void
-				{
-				  image.width = e.stageX;
-				  image.height = e.stageY;
-				});*/
 			}
 		}
 		

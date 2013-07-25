@@ -13,7 +13,19 @@ package tools.display {
 	/**
 	 * ...
 	 * @author Egidijus
+	 *
+	 * Example:
+	 *
+	   var prt:ParticleSystem = new ParticleSystem(ParticleClass, 0.05);
+	   addChild(prt);
+	   Starling.juggler.add(prt);
+	
+	   prt.start();
+	   prt.stop();
+	   prt.emitterX = 20;
+	   prt.emitterY = 20;
 	 */
+	
 	public class ParticleSystem extends Sprite implements IAnimatable {
 		public var started:Boolean = false;
 		private var tempParticle:*;
@@ -24,7 +36,13 @@ package tools.display {
 		private var _emitterY:Number = 0;
 		private var _emitterX:Number = 0;
 		private var params:Object;
-
+		
+		/**
+		 *
+		 * @param	objectClass particlu klase,
+		 * @param	interval kas kiek laiko pridedamas naujas partiklas, sekundemis
+		 * @param	parentHolder nenaudomas
+		 */
 		public function ParticleSystem(objectClass:Class, interval:Number, parentHolder:DisplayObjectContainer = null) {
 			this.parentHolder = parentHolder;
 			this.interval = interval;
@@ -32,9 +50,6 @@ package tools.display {
 			this.objectClass = objectClass;
 			
 			ObjectPool.instance.registerPool(objectClass, 100, true);
-			
-			
-
 		}
 		
 		public function get emitterX():Number {
@@ -53,21 +68,16 @@ package tools.display {
 			_emitterY = value;
 		}
 		
-		public function get interval():Number 
-		{
+		public function get interval():Number {
 			return _interval;
 		}
 		
-		public function set interval(value:Number):void 
-		{
+		public function set interval(value:Number):void {
 			_interval = value;
 		}
 		
 		public function start():void {
-
-			//createParticles();
 			started = true;
-			//addEventListener(Event.ENTER_FRAME, updateParticles);
 		}
 		
 		public function stop():void {
@@ -77,22 +87,16 @@ package tools.display {
 		/* INTERFACE starling.animation.IAnimatable */
 		
 		public function advanceTime(time:Number):void {
-			//if(numChildren>0){
-				for (var i:int = 0; i < numChildren; i++) {
-					if (getChildAt(i) is objectClass) {
-						objectClass(getChildAt(i)).update(time);
-					}
+			for (var i:int = 0; i < numChildren; i++) {
+				if (getChildAt(i) is objectClass) {
+					objectClass(getChildAt(i)).update(time);
 				}
-				
-			//}
+			}
 			
 			if (started) {
-
-				
 				timer -= time;
 				
 				if (timer <= 0) {
-					
 					tempParticle = ObjectPool.instance.getObj(objectClass, params) as Particle;
 					tempParticle.x = _emitterX;
 					tempParticle.y = _emitterY;
@@ -100,13 +104,12 @@ package tools.display {
 					
 					timer = interval;
 				}
-
+				
 			}
 		}
 		
-		public function setParams(params:Object):void 	{
+		public function setParams(params:Object):void {
 			this.params = params;
-			
 		}
 	
 	}
