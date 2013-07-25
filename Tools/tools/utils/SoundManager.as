@@ -1,7 +1,8 @@
 package tools.utils {
-	import com.pepiplay.utils.AssetManager;
+	//import com.pepiplay.utils.AssetManager;
 	import flash.media.SoundChannel;
 	import flash.media.SoundTransform;
+	import starling.utils.AssetManager;
 	import tools.Time;
 	import flash.media.Sound;
 	import flash.utils.Dictionary;
@@ -97,49 +98,6 @@ package tools.utils {
 				(sound.chanel as SoundChannel).soundTransform = new SoundTransform(volume);
 			}
 		}
-		
-		
-/*		public function playSingleSound(sound_name:String):void {
-			
-			var sound:Object;
-			if (allSounds[sound_name]) {
-				sound = allSounds[sound_name];
-				if (sound.playing)
-					return;
-				
-			} else {
-				sound = {};
-				sound.name = sound_name;
-				allSounds[sound_name] = sound;
-					//SoundManager.getInstance().play(sound_name, 0, 0, int.MAX_VALUE);
-					//
-			}
-			//trace("start sound", sound_name)
-			
-			sound.playing = true;
-			var sound_len:Number = assets.getSound(sound_name).length / 1000;
-			assets.playSound(sound_name);
-			Time.delay(soundEnded, sound_len, [sound_name]);
-		
-		}*/
-		
-/*		private function soundEnded(sound_name:String):void {
-			//throw new Error("soundEnded");
-			//playingSounds[sound_name] = false;
-			allSounds[sound_name].playing = false;
-		}
-		
-		public function stopSounds():void {
-			
-			for (var sound_name:String in allSounds) {
-				var value:Object = allSounds[sound_name];
-				value.playing = false;
-				SoundManager.getInstance().stopSfx(sound_name);
-					// do stuff
-			}
-		
-
-		}*/
 	}
 
 }

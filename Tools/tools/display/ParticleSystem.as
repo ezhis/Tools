@@ -1,5 +1,4 @@
 package tools.display {
-	import com.pepiplay.pepidoctor.Game;
 	import flash.geom.Point;
 	import flash.utils.getTimer;
 	import starling.animation.IAnimatable;
